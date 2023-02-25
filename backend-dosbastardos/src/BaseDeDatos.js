@@ -34,7 +34,7 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Books } = sequelize.models;
+const { Book } = sequelize.models;
 
 // Aca vendrian las relaciones
 
