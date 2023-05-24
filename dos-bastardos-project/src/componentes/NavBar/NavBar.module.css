@@ -1,0 +1,22 @@
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'EB Garamond', serif;
+    padding: 10px;
+    background-color: black;
+    color: aliceblue;
+}
+
+.links {
+    display: flex;
+    gap: 15px;
+    
+}
+
+.link {
+    
+    text-decoration: none;
+    color: aliceblue;
+
+}
+

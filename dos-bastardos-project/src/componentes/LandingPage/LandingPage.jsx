@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from './LandingPage.module.css'
+import styles from './LandingPage.module.css';
+import { Link } from 'react-router-dom';
 
 function LandingPage() {
   return (
@@ -7,7 +8,8 @@ function LandingPage() {
 
         <div className={styles.buttonContainer}>
 
-            <button className={styles.button} >Entrar</button>
+        <Link to="/inicio"> <button className={styles.button} >Entrar</button> </Link>
+            
 
         </div>
       
