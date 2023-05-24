@@ -1,9 +1,18 @@
 .container {
-    background-image: url("../../assets/landingpage.png");
+    background-image: url("../../assets/dos-bastardos.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonContainer {
+    padding-top: 400px;
+}
+
+.button {
+    padding: 10px;
 }

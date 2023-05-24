@@ -4,8 +4,11 @@ import styles from './LandingPage.module.css'
 function LandingPage() {
   return (
     <div className={styles.container}>
-        <div>
-            <button>Entrar</button>
+
+        <div className={styles.buttonContainer}>
+
+            <button className={styles.button} >Entrar</button>
+
         </div>
       
     </div>
