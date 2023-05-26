@@ -8,7 +8,7 @@ function NavBar() {
       <nav className={styled.navbarContainer}>
 
         <div>
-          <p>DOS BASTARDOS</p>
+          <p className={styled.logo}>DOS BASTARDOS</p>
         </div>
 
         <div className={styled.links}>
@@ -16,6 +16,8 @@ function NavBar() {
           <Link to="/foro" className={styled.link}> Foro </Link>
           <Link to="/" className={styled.link}> Salir </Link>
           <Link to="/inicio" className={styled.link}> Inicio </Link>
+          <Link to="/inicio" className={styled.link}> Iniciar Sesion </Link>
+          <Link to="/inicio" className={styled.link}> Registrarse </Link>
 
         </div>
         

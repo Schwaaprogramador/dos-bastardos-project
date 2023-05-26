@@ -6,10 +6,12 @@ import Home from "./componentes/Home/Home";
 import Foro from "./componentes/Foro/Foro";
 import LandingPage from "./componentes/LandingPage/LandingPage";
 
+
 function App() {
   return (
 
     <div className={styled.app}>
+      
       <Routes>
 
         <Route exact path="/" element={<LandingPage/>}/>

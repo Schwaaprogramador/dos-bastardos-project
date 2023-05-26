@@ -1,13 +1,25 @@
 import React from 'react'
 import NavBar from '../NavBar/NavBar';
+import styled from './Foro.module.css';
+import Post from '../Post/Post';
+
 
 function Foro() {
   return (
-    <main>
-        <NavBar/>
-        FORO
-      
-    </main>
+    <>
+
+    <NavBar/>
+
+        <main className={styled.foroContainer}>
+        
+            Esto es el post <Post/>
+            <Post/>
+            <Post/>
+        
+        </main>
+    
+    </>
+    
   )
 }
 
