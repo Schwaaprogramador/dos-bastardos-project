@@ -1,6 +1,9 @@
 
 .postContainer {
     display: flex;
+    font-family: 'EB Garamond', serif;
+    gap: 15px;
+    padding: 15px;
 }
 
 
