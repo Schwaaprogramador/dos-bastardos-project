@@ -3,4 +3,5 @@
     margin: 0px;
     padding: 0px;
     font-family: 'EB Garamond', serif;
+    box-sizing: border-box;
 }

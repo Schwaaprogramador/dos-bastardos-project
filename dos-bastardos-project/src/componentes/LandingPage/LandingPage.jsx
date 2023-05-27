@@ -8,7 +8,7 @@ function LandingPage() {
 
         <div className={styles.buttonContainer}>
 
-        <Link to="/inicio"> <button className={styles.button} >Entrar</button> </Link>
+        <Link to="/inicio/noticias"> <button className={styles.button} >Entrar</button> </Link>
             
 
         </div>

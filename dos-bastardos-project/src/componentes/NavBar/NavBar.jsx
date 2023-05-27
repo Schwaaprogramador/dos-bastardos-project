@@ -13,11 +13,11 @@ function NavBar() {
 
         <div className={styled.links}>
 
-          <Link to="/foro" className={styled.link}> Foro </Link>
+          <Link to="/inicio/noticias" className={styled.link}> Inicio </Link>
+          <Link to="/inicio/foro" className={styled.link}> Foro </Link>
+          <Link to="/inicio/iniciosesion" className={styled.link}> Iniciar Sesion </Link>
+          <Link to="/inicio/registro" className={styled.link}> Registrarse </Link>
           <Link to="/" className={styled.link}> Salir </Link>
-          <Link to="/inicio" className={styled.link}> Inicio </Link>
-          <Link to="/inicio" className={styled.link}> Iniciar Sesion </Link>
-          <Link to="/inicio" className={styled.link}> Registrarse </Link>
 
         </div>
         
