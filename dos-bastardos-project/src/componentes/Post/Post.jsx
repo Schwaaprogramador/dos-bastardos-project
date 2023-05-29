@@ -12,7 +12,7 @@ function Post() {
         <div>
 
             <h2>
-                ALGUN TITULO BONITO
+                Esto es un post
             </h2>
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 

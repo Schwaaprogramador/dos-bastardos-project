@@ -1,3 +1,4 @@
+//-------------- EXPORTACIONES--------------------
 const express = require('express')
 const app = express();
 const morgan = require('morgan');
@@ -13,6 +14,10 @@ app.use(express.json())
 //-----------Mongose--------
 mongoose.connect('mongodb+srv://danieltoroprogramacion:Qq7812*@cluster0.9lyfv2a.mongodb.net/?retryWrites=true&w=majority')
 
+
+
+
+//---------------Rutas-----------------
 app.get('/test', (req, res)=>{
     res.send('test ok')
 })

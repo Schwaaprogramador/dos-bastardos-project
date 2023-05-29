@@ -11,7 +11,7 @@ function Foro() {
 
         <main className={styled.foroContainer}>
         
-            Esto es el post 
+            
             <Post/>
             <Post/>
             <Post/>

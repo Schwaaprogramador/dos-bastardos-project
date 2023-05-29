@@ -8,8 +8,10 @@ function Registro() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+
   const registro = async (evento) => {
     evento.preventDefault();
+    //-----string literales--- es lo mismo que tener username: username, password:password
     const payload = {
       username,
       password
@@ -21,6 +23,7 @@ function Registro() {
   }
 
 
+  
   return (
     <form className={styled.loginContainer} onSubmit={registro}>
 
