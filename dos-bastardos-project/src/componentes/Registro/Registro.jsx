@@ -33,7 +33,7 @@ function Registro() {
                value={username}
                onChange={evento => setUsername(evento.target.value)}/>
 
-        <input type="text" 
+        <input type="password" 
                 placeholder='Password' 
                 className={styled.input}
                 value={password}
