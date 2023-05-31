@@ -1,18 +1,27 @@
 .container {
-    background-image: url("https://res.cloudinary.com/drnryofoj/image/upload/v1685078110/dos-bastardos/dos-bastardosResize_kd4ah1.png");
+    background-image: url("../../assets/dos-bastardos-fondo.jpg");  
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 500px;
+    flex-direction: column;
 }
 
 .buttonContainer {
-    padding-top: 400px;
+    padding-top: 300px;
 }
 
 .button {
-    padding: 10px;
+    padding: 5px;
+}
+
+.text {
+    
+    font-size: xx-large;
+    font-family: 'EB Garamond', serif;
+    color: aliceblue;
 }

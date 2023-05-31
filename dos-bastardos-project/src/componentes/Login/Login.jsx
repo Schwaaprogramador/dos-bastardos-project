@@ -24,12 +24,13 @@ function Login() {
     const loginUser =  await axios.post('http://localhost:3001/login', payload)
    
 
-    if(loginUser.data == 'InicioSesionCorrecto'){
+    if(loginUser.data === 'InicioSesionCorrecto'){
 
       alert('Inicio de Sesion Correcto')
       setRedirect(true);
 
     } else {
+      
       alert('Usuario incorrecto')
     }
     

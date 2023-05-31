@@ -1,0 +1,106 @@
+.homeContainer {
+    padding: 0 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text {
+    padding: 10px;
+    font-size: x-large;
+    font-family: 'EB Garamond', serif;
+    color: rgb(255, 255, 255);
+}
+
+/* -----------------------------HEADER---------------------------------- */
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* -----------------------------LINK---------------------------------- */
+
+.link:hover {
+
+    border-bottom: 1px solid aliceblue;
+    background-color: rgba(0, 0, 0, 0.266);
+    
+}
+
+/* -----------------------------SECTION 1---------------------------------- */
+.section1Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.53);
+
+}
+
+
+
+
+/* -----------------------------SECTION 2---------------------------------- */
+.section2Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    height: 100vh;
+    color: rgb(21, 21, 21);
+    background-color: rgb(255, 255, 255, 0.53);
+
+}
+
+.section2Container .text {
+    padding: 10px;
+    font-size: x-large;
+    font-family: 'EB Garamond', serif;
+    color: rgb(0, 0, 0);
+}
+
+
+
+
+/* -----------------------------SECTION 3---------------------------------- */
+
+.section3Container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    color: aliceblue;
+    background-color: black;
+
+}
+
+
+
+
+
+
+/* -----------------------------SECTION 4---------------------------------- */
+.section4Container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+
+}
+
+.section4Container .text {
+    padding: 10px;
+    font-size: x-large;
+    font-family: 'EB Garamond', serif;
+    color: rgb(0, 0, 0);
+}

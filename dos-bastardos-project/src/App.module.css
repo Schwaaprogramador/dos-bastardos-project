@@ -1,4 +1,8 @@
 .app {
+    background-image: url('../src/assets/dos-bastardos-fondo.jpg');
+    background-position: center;
+    background-size:cover;
     margin: 0px;
     padding: 0px;
+    min-height:100vh;
 }
