@@ -6,7 +6,7 @@
 
 .text {
     padding: 10px;
-    font-size: x-large;
+    font-size: large;
     font-family: 'EB Garamond', serif;
     color: rgb(255, 255, 255);
 }
@@ -14,9 +14,13 @@
 /* -----------------------------HEADER---------------------------------- */
 
 .header{
+    background-color: rgba(0, 0, 0, 0.222);
+    padding: 10px;
+    position:fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-width: 760px;
 }
 
 /* -----------------------------LINK---------------------------------- */
@@ -24,7 +28,7 @@
 .link:hover {
 
     border-bottom: 1px solid aliceblue;
-    background-color: rgba(0, 0, 0, 0.266);
+    background-color: rgba(255, 255, 255, 0.118);
     
 }
 
@@ -36,7 +40,7 @@
 
     height: 100vh;
     color: aliceblue;
-    background-color: rgba(0, 0, 0, 0.53);
+    background-color: rgba(0, 0, 0, 0.082);
 
 }
 
@@ -52,53 +56,11 @@
 
     height: 100vh;
     color: rgb(21, 21, 21);
-    background-color: rgb(255, 255, 255, 0.53);
+    background-color: rgba(255, 255, 255, 0.256);
 
 }
 
 .section2Container .text {
-    padding: 10px;
-    font-size: x-large;
-    font-family: 'EB Garamond', serif;
-    color: rgb(0, 0, 0);
-}
-
-
-
-
-/* -----------------------------SECTION 3---------------------------------- */
-
-.section3Container{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
-    color: aliceblue;
-    background-color: black;
-
-}
-
-
-
-
-
-
-/* -----------------------------SECTION 4---------------------------------- */
-.section4Container{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-
-}
-
-.section4Container .text {
     padding: 10px;
     font-size: x-large;
     font-family: 'EB Garamond', serif;

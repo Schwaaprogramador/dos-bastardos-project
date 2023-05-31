@@ -2,6 +2,9 @@
     background-image: url('../src/assets/dos-bastardos-fondo.jpg');
     background-position: center;
     background-size:cover;
+    background-repeat: no-repeat;
+    
+    
     margin: 0px;
     padding: 0px;
     min-height:100vh;

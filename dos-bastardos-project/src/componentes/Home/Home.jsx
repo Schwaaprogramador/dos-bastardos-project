@@ -17,7 +17,7 @@ function Home() {
 
 
         <Link to="section2Container" className={styled.link}  smooth={true} duration={500}>
-          <div className={styled.text}><p>Cultura</p></div>
+          <div className={styled.text}><p>Recomendaciones</p></div>
         </Link>
 
 
@@ -40,8 +40,8 @@ function Home() {
       </section>
 
       <section name="section2Container"className={styled.section2Container}><div className={styled.text}><p>Cultura</p></div> </section>
-      <section name="section3Container"className={styled.section3Container}><div className={styled.text}><p>Noticias</p></div></section>
-      <section name="section4Container"className={styled.section4Container}> <div className={styled.text}><p>Sobre Nosotros</p></div></section>
+      <section name="section3Container"className={styled.section1Container}><div className={styled.text}><p>Noticias</p></div></section>
+      <section name="section4Container"className={styled.section2Container}> <div className={styled.text}><p>Sobre Nosotros</p></div></section>
         
     </div>
   )
