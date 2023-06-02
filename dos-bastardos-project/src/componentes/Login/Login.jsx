@@ -1,8 +1,9 @@
 //-----------IMPORTACIONES--------------------------
 import styled from './Login.module.css';
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import axios from "axios";
 import {Navigate} from 'react-router-dom';
+import { userContext } from '../../../src/userContext';
 
 
 function Login() {
@@ -11,6 +12,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
 
+  const { setUserInfo } = useContext(userContext)
 
   const login = async (e)=>{
 
@@ -21,14 +23,15 @@ function Login() {
       password
     }
     
-    const loginUser =  await axios.post('http://localhost:3001/login', payload)
+    const loginUser =  await axios.post('http://localhost:3001/login', payload, {withCredentials:true})
    
 
-    if(loginUser.data === 'InicioSesionCorrecto'){
+    if(loginUser.data.username.length  > 0){
 
       alert('Inicio de Sesion Correcto')
       setRedirect(true);
-
+      console.log(loginUser.data);
+      setUserInfo( loginUser.data.username )
     } else {
       
       alert('Usuario incorrecto')
@@ -37,8 +40,11 @@ function Login() {
   }
 
   if(redirect) {
+
     return (
-      <Navigate to={'/'} />
+
+      <Navigate to={'/inicio/noticias'} />
+
     )
   }
 

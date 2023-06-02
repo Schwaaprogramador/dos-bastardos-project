@@ -9,6 +9,7 @@ import Login from './componentes/Login/Login';
 import Registro from './componentes/Registro/Registro';
 //import NavBar from './componentes/NavBar/NavBar';
 import Layout from './componentes/Layout/Layout';
+import { UserContextProvider } from './userContext';
 
 
 function App() {
@@ -16,22 +17,29 @@ function App() {
 
     <div className={styled.app}>
       
-      <Routes>
+      <UserContextProvider>
 
-        <Route exact path="/" element={<LandingPage/>}/>
+          <Routes>
 
-        <Route exact path="/inicio" element={<Layout/>}>
+                      <Route exact path="/" element={<LandingPage/>}/>
 
-          <Route  exact path="/inicio/iniciosesion" element={<Login/>}/>
-          <Route  exact path="/inicio/registro" element={<Registro/>}/>
-          <Route  exact path="/inicio/foro" element={<Foro/>}/>
-          <Route  exact path="/inicio/noticias" element={<Home/>}/>
+                      <Route exact path="/inicio" element={<Layout/>}>
 
-        </Route>
+                        <Route  exact path="/inicio/iniciosesion" element={<Login/>}/>
+                        <Route  exact path="/inicio/registro" element={<Registro/>}/>
+                        <Route  exact path="/inicio/foro" element={<Foro/>}/>
+                        <Route  exact path="/inicio/noticias" element={<Home/>}/>
+
+                      </Route>
+        
+          </Routes>
+
+      </UserContextProvider>
+     
         
         
 
-      </Routes>
+      
       
       
     </div>

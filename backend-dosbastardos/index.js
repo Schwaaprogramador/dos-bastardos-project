@@ -6,20 +6,23 @@ const cors = require('cors'); //npm cors
 const mongoose = require('mongoose');
 const userModel = require('./Models/User.js');
 const jwt = require('jsonwebtoken') //npm jsonwebtoken
+const cookieParser = require('cookie-parser')
 
-//----------encriptar password-------
-const bcrypt = require('bcryptjs'); //npm bcrypt
-const salt = bcrypt.genSaltSync(10);
 
-const secret ='sdfsdfsdfsdfsdfsfssfgfhtsfg' // Parametro para el token
+    //----------Encriptar password-------
+    const bcrypt = require('bcryptjs'); //npm bcrypt
+    const salt = bcrypt.genSaltSync(10);
+    const secret ='sdfsdfsdfsdfsdfsfssfgfhtsfg' // Parametro para el token
+    
 
-//----------MIDDLEWARES---------------
-app.use(morgan('dev'));
-app.use(cors({credentials:true , origin:'http://localhost:3000'}));
-app.use(express.json())
+    //----------MIDDLEWARES---------------
+    app.use(morgan('dev'));
+    app.use(cors({credentials:true , origin:'http://localhost:3000'}));
+    app.use(express.json());
+    app.use(cookieParser());
 
-//-----------Mongose--------
-mongoose.connect('mongodb+srv://danieltoroprogramacion:Qq7812*@cluster0.9lyfv2a.mongodb.net/?retryWrites=true&w=majority')
+    //-----------Mongose--------
+    mongoose.connect('mongodb+srv://danieltoroprogramacion:Qq7812*@cluster0.9lyfv2a.mongodb.net/?retryWrites=true&w=majority')
 
 
 
@@ -71,7 +74,8 @@ app.post('/login', async (req, res)=>{
         jwt.sign({username, id:usernameDatabase._id}, secret , {}, (err, token)=>{
 
             if(err) throw(err);
-            res.cookie('token', token).json('InicioSesionCorrecto')
+
+            res.cookie('token', token).json({id: usernameDatabase._id, username, })
         })
 
 
@@ -81,6 +85,24 @@ app.post('/login', async (req, res)=>{
     }
 })
 
+
+
+app.get('/profile', (req, res)=>{
+
+    const { token }= req.cookies;
+
+    jwt.verify(token, secret, {}, (err, info)=>{
+        if(err) throw err;
+        res.json(info);
+    })
+    
+
+})
+
+
+app.post('/logout', (req, res)=>{
+    res.cookie('token', '').json('Cierre de Sesion')
+})
 
 
 

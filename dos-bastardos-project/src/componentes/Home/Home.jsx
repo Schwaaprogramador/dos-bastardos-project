@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from './Home.module.css';
-import Carrucel from '../Carrucel/Carrucel';
+
 import { Link } from 'react-scroll';
 //import NavBar from '../NavBar/NavBar';
 
