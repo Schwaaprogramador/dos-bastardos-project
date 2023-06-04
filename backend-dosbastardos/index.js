@@ -1,18 +1,23 @@
 //-------------- EXPORTACIONES--------------------
-const express = require('express')
-const app = express();
-const morgan = require('morgan');//npm morgan
-const cors = require('cors'); //npm cors
-const mongoose = require('mongoose');
-const userModel = require('./Models/User.js');
-const jwt = require('jsonwebtoken') //npm jsonwebtoken
-const cookieParser = require('cookie-parser')
-
-
-    //----------Encriptar password-------
-    const bcrypt = require('bcryptjs'); //npm bcrypt
-    const salt = bcrypt.genSaltSync(10);
-    const secret ='sdfsdfsdfsdfsdfsfssfgfhtsfg' // Parametro para el token
+    const express = require('express')
+    const app = express();
+    const morgan = require('morgan');//npm morgan
+    const cors = require('cors'); //npm cors
+    //--------MODELOS-------------
+    const mongoose = require('mongoose');
+    const userModel = require('./Models/User.js');
+    const postModel = require('./Models/Post.js');
+    //------JWT--------
+    const jwt = require('jsonwebtoken') //npm jsonwebtoken
+    const cookieParser = require('cookie-parser');
+    //-----------LEER LOS FILES------------
+    const multer = require('multer');
+    const upload = multer({ dest: 'Imagenes/' });
+    const fs = require('fs');
+        //----------Encriptar password-------
+        const bcrypt = require('bcryptjs'); //npm bcrypt
+        const salt = bcrypt.genSaltSync(10);
+        const secret ='sdfsdfsdfsdfsdfsfssfgfhtsfg' // Parametro para el token
     
 
     //----------MIDDLEWARES---------------
@@ -20,6 +25,7 @@ const cookieParser = require('cookie-parser')
     app.use(cors({credentials:true , origin:'http://localhost:3000'}));
     app.use(express.json());
     app.use(cookieParser());
+    app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
 
     //-----------Mongose--------
     mongoose.connect('mongodb+srv://danieltoroprogramacion:Qq7812*@cluster0.9lyfv2a.mongodb.net/?retryWrites=true&w=majority')
@@ -27,12 +33,14 @@ const cookieParser = require('cookie-parser')
 
 
 
+
+
+
+
+
+
+
 //---------------Rutas-----------------
-app.get('/test', (req, res)=>{
-    res.send('test ok')
-})
-
-
 //--------------------REGISTRO--------------------------
 
 app.post('/registro', async (req, res)=>{
@@ -52,6 +60,12 @@ app.post('/registro', async (req, res)=>{
     }
     
 })
+
+
+
+
+
+
 
 
 //-------------LOGIN-------------------
@@ -75,7 +89,7 @@ app.post('/login', async (req, res)=>{
 
             if(err) throw(err);
 
-            res.cookie('token', token).json({id: usernameDatabase._id, username, })
+            res.cookie('token', token).json({ id: usernameDatabase._id, username })
         })
 
 
@@ -84,6 +98,8 @@ app.post('/login', async (req, res)=>{
         res.status(400).json('Usuario Incorrecto')
     }
 })
+
+
 
 
 
@@ -100,9 +116,75 @@ app.get('/profile', (req, res)=>{
 })
 
 
-app.post('/logout', (req, res)=>{
-    res.cookie('token', '').json('Cierre de Sesion')
+
+
+
+
+
+
+
+//------------------------NUEVO POST-----------------------
+
+app.post('/createpost', upload.single('imagen'), async (req, res)=>{
+
+    const { titulo, resumen, contenido } = req.body;
+
+    res.json({body: req.body, fileImage: req.file})
+    
+    const {originalname , path} = req.file;
+    const parts = originalname.split('.');
+    const ext = parts[parts.length - 1];
+    const newPath = path+'.'+ext
+    
+
+    fs.renameSync(path, newPath)
+
+    
+    
+
+    const postCreado = await postModel.create({
+
+                                    titulo, 
+                                    resumen, 
+                                    contenido,
+                                    imagen: newPath,
+
+                                })
+
+    
+                                
+    
 })
+
+
+
+
+//-----------------TRAER LOS POST DE LA DB------------------
+app.get('/post', async (req, res)=>{
+
+    const data = await postModel.find();
+
+    res.json(data)
+ 
+    
+})
+
+
+
+
+
+
+//---------------LOGOUT---------------------------------------
+
+app.post('/logout', (req, res)=>{
+
+    res.clearCookie('token');
+    res.cookie('token', '').json('Cierre de Sesion')
+    
+})
+
+
+
 
 
 

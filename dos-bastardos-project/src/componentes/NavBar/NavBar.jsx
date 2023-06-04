@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from './NavBar.module.css';
 import axios from "axios";
@@ -20,18 +20,18 @@ function NavBar() {
       try {
 
         const info = await axios.get('http://localhost:3001/profile', {withCredentials:true});
-        console.log(info)
+        
         setUserInfo(info.data.username)
-        console.log(info.data.username)
+        
       } catch (error) {
         console.log(error)
       }
       
      }
      
-     response();   
+     response();   // es importante ejecutar la funcion.
 
-  },[])
+  },[setUserInfo])
 
 
   const logout = async () => {
@@ -58,8 +58,8 @@ function NavBar() {
               {userInfo && (
             <>
               <p>Hola  {userInfo}</p>
-              <Link to='/nuevoregistro' className={styled.link}> Nuevo Registro </Link>
-              <a onClick={logout}>logout</a>
+              <Link to='/inicio/crearpost' className={styled.link}> Nuevo Registro </Link>
+              <button onClick={logout} className={styled.link}>logout</button>
             </>
             )}
 
@@ -78,7 +78,7 @@ function NavBar() {
           <Link to="/inicio/foro" className={styled.link}> Foro </Link>
           
 
-          <Link to="/" className={styled.link}> Salir </Link>
+          
 
         </div>
         

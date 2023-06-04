@@ -1,0 +1,34 @@
+.formContainer {
+    color: aliceblue;
+    padding: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.button {
+    width: 100%;
+    display: block;
+    background-color: #000000;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 0;
+}
+
+.input {
+    display: block;
+    padding: 5px;
+    border: 0;
+    border-bottom: 1px solid #5a5454;
+    border-radius: 3px;
+    width: 100%;
+    background-color: #ddd;
+    margin-bottom: 10px;
+}
+
+.contenido {
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    background-color: #0000006a;
+    margin: 10px;
+}

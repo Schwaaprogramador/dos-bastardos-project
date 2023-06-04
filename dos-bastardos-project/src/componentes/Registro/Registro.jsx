@@ -6,6 +6,7 @@ function Registro() {
 
 
   const [username, setUsername] = useState('');
+  
   const [password, setPassword] = useState('');
 
 

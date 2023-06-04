@@ -29,9 +29,11 @@ function Login() {
     if(loginUser.data.username.length  > 0){
 
       alert('Inicio de Sesion Correcto')
+      setUserInfo( loginUser.data.username )
       setRedirect(true);
       console.log(loginUser.data);
-      setUserInfo( loginUser.data.username )
+      
+
     } else {
       
       alert('Usuario incorrecto')

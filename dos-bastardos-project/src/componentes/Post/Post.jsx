@@ -1,25 +1,23 @@
 import React from 'react';
 import styled from './Post.module.css';
 
-function Post() {
+function Post({titulo, resumen, contenido, imagen, createdAt }) {
   return (
     <div className={styled.postContainer}>
 
         <div className={styled.image}>
-            <img className={styled.img}src="https://c4.wallpaperflare.com/wallpaper/176/83/767/cinema-golden-logo-game-wallpaper-preview.jpg" alt="imagen del wow" />
+            <img className={styled.img} src={'http://localhost:3001/'+imagen} alt="imagen del wow" />
         </div>
 
         <div>
 
             <h2>
-                Esto es un post
+                {titulo}
             </h2>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Eos officiis repellat quae rerum nisi, nihil illum quidem, 
-                dolorem ea dolore itaque vero sunt possimus deserunt impedit 
-                eius ab voluptatum id.
-                </p>
+            <p>{resumen}</p>
+            <p>{createdAt}</p>
+            <p>{contenido}</p>
         </div>
       
     </div>

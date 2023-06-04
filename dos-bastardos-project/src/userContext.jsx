@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 
 export const userContext = createContext({})
 
+
 export const UserContextProvider = ({children})=>{
 
     const [userInfo, setUserInfo] = useState(null);
@@ -10,7 +11,7 @@ export const UserContextProvider = ({children})=>{
 
         <userContext.Provider value ={{userInfo, setUserInfo}}>
 
-        {children}
+            {children}
 
         </userContext.Provider>
     )

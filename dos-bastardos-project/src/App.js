@@ -10,6 +10,7 @@ import Registro from './componentes/Registro/Registro';
 //import NavBar from './componentes/NavBar/NavBar';
 import Layout from './componentes/Layout/Layout';
 import { UserContextProvider } from './userContext';
+import CreatePost from './componentes/CreatePost/CreatePost';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                         <Route  exact path="/inicio/registro" element={<Registro/>}/>
                         <Route  exact path="/inicio/foro" element={<Foro/>}/>
                         <Route  exact path="/inicio/noticias" element={<Home/>}/>
+                        <Route  exact path="/inicio/crearpost" element={<CreatePost/>}/>
 
                       </Route>
         
