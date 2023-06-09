@@ -2,7 +2,7 @@
     "scripts":{
 
         "start":"node index",
-        "build": "npm run build"
+        "build": "webpack"
     },
         
         "dependencies":{
