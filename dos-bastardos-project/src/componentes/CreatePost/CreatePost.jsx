@@ -19,6 +19,9 @@ function CreatePost() {
   const [imagen, setImagen]=useState('');
   const [redirect, setRedirect] = useState(false);
 
+  console.log(titulo)
+  console.log(resumen)
+  console.log(contenido)
 
  
 
@@ -33,9 +36,10 @@ function CreatePost() {
           payload.set('contenido', contenido);
           payload.set('imagen', imagen[0]);
 
-          
+          //---{withCredentials:true}---- para mandar la cookie
           console.log(payload)
-          const newPost = await axios.post('http://localhost:3001/createpost', payload)
+
+          const newPost = await axios.post('http://localhost:3001/createpost', payload, {withCredentials:true})
 
           console.log(newPost.data)
 

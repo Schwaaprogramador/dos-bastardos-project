@@ -5,22 +5,28 @@ const PostSchema = new Schema({
 
     titulo: {
         type: String,
-        required: true,
-        unique: true
         
     },
     resumen:{
         type: String,
         
     },
+
     contenido:{
         type: String,
         
     },
+
     imagen:{
         type: String,
         
+    },
+
+    author:{
+        type: Schema.Types.ObjectId,
+        ref:'User',
     }
+
 }, {timestamps: true})
 
 

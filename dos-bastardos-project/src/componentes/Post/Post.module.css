@@ -9,9 +9,6 @@
 
 
 .image {
-    max-width: 300px;
-}
-
-.img {
-    max-width: 100%;
+    max-width: auto;
+    height: 300px;
 }

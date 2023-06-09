@@ -11,6 +11,7 @@ import Registro from './componentes/Registro/Registro';
 import Layout from './componentes/Layout/Layout';
 import { UserContextProvider } from './userContext';
 import CreatePost from './componentes/CreatePost/CreatePost';
+import PostPage from './componentes/Post/PostPage';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                         <Route  exact path="/inicio/foro" element={<Foro/>}/>
                         <Route  exact path="/inicio/noticias" element={<Home/>}/>
                         <Route  exact path="/inicio/crearpost" element={<CreatePost/>}/>
+                        <Route  exact path="/inicio/post/:id" element={<PostPage/>}/>
 
                       </Route>
         

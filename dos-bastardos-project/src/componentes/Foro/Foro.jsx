@@ -7,17 +7,23 @@ import axios from "axios";
 function Foro() {
 
   const [post, setPost] = useState([])
+  console.log(post)
 
   useEffect(()=>{
 
     const allPost = async () => {
+
       try {
+
         const posts = await axios.get('http://localhost:3001/post');
+
         setPost(posts.data);
-        console.log(posts.data)
+       
       } catch (error) {
+
         console.log(error)
       }
+      
      }
      
 
@@ -31,7 +37,7 @@ function Foro() {
         <main className={styled.foroContainer}>
         
             
-            {post.length > 0 && post.map( post => <Post {...post} />)}
+            {post.length > 0 && post.map( post => <Post {...post}    key={post._id}/>)}
             
         
         </main>
