@@ -3,11 +3,11 @@
     const app = express();
     const morgan = require('morgan');//npm morgan
     const cors = require('cors'); //npm cors
-
+    require("dotenv").config();
     //--------MODELOS-------------
     const mongoose = require('mongoose');
-    const userModel = require('../Models/User.js');
-    const postModel = require('../Models/Post.js');
+    const userModel = require('./Models/User.js');
+    const postModel = require('./Models/Post.js');
 
     //------JWT--------
     const jwt = require('jsonwebtoken') //npm jsonwebtoken
@@ -25,13 +25,14 @@
 
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-    app.use(cors({credentials:true , origin:'http://localhost:3000'}));
+    app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
 
     //-----------Mongose--------
-    mongoose.connect('mongodb+srv://danieltoroprogramacion:Qq7812*@cluster0.9lyfv2a.mongodb.net/?retryWrites=true&w=majority')
+    console.log(process.env.MONGODB_URI)
+    mongoose.connect(process.env.MONGODB_URI)
 
 
 
