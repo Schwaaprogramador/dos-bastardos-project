@@ -19,7 +19,7 @@ function NavBar() {
 
       try {
 
-        const info = await axios.get('http://localhost:3001/profile', {withCredentials:true});
+        const info = await axios.get('https://dos-bastardos-backend.up.railway.app/profile', {withCredentials:true});
         
         setUserInfo(info.data.username)
         
@@ -35,7 +35,7 @@ function NavBar() {
 
 
   const logout = async () => {
-    const logout2 = await axios.post('http://localhost:3001/logout', {withCredentials:true});
+    const logout2 = await axios.post('https://dos-bastardos-backend.up.railway.app/logout', {withCredentials:true});
     alert(logout2.data)
     setUserInfo(null)
   }

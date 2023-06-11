@@ -23,7 +23,7 @@ function Login() {
       password
     }
     
-    const loginUser =  await axios.post('http://localhost:3001/login', payload, {withCredentials:true})
+    const loginUser =  await axios.post('https://dos-bastardos-backend.up.railway.app/login', payload, {withCredentials:true})
    
 
     if(loginUser.data.username.length  > 0){

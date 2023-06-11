@@ -18,7 +18,7 @@ function Registro() {
       password
     }
     
-    const newRegistro = await axios.post('http://localhost:3001/registro', payload)
+    const newRegistro = await axios.post('https://dos-bastardos-backend.up.railway.app/registro', payload)
 
     alert(newRegistro.data)
   }

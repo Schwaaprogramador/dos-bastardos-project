@@ -15,7 +15,7 @@ function Foro() {
 
       try {
 
-        const posts = await axios.get('http://localhost:3001/post');
+        const posts = await axios.get('https://dos-bastardos-backend.up.railway.app/post');
 
         setPost(posts.data);
        

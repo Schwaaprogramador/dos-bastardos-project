@@ -39,7 +39,7 @@ function CreatePost() {
           //---{withCredentials:true}---- para mandar la cookie
           console.log(payload)
 
-          const newPost = await axios.post('http://localhost:3001/createpost', payload, {withCredentials:true})
+          const newPost = await axios.post('https://dos-bastardos-backend.up.railway.app/createpost', payload, {withCredentials:true})
 
           console.log(newPost.data)
 
