@@ -26,6 +26,7 @@
 
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
+
     app.use((req, res, next) => {
         res.header("Access-Control-Allow-Origin", "https://dos-bastardos-project.vercel.app"); // update to match the domain you will make the request from
         res.header("Access-Control-Allow-Credentials", "true");
@@ -36,6 +37,7 @@
         res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
         next();
     });
+
     app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
     app.use(express.json());
     app.use(cookieParser());
@@ -144,7 +146,7 @@ app.get('/profile', (req, res)=>{
 
 //------------------------NUEVO POST-----------------------
 
-app.post('/createpost', upload.single('imagen'), async (req, res)=>{
+app.post('/createpost', cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app/inicio/crearpost'}), upload.single('imagen'), async (req, res)=>{
 
     const { titulo, resumen, contenido } = req.body;
     const { token }= req.cookies;
