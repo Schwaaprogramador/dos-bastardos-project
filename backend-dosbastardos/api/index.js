@@ -25,7 +25,7 @@
 
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-    app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
+    app.use(cors({credentials:true , origin:'http://localhost:3000'}));
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))

@@ -1,8 +1,8 @@
 {
     "scripts":{
 
-        "start":"node index",
-        "build": "webpack"
+        "start":"node ./index.js"
+        
     },
         
         "dependencies":{
