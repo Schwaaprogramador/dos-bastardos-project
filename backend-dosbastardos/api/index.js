@@ -27,14 +27,24 @@
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
 
+
     app.use(cors({
                     credentials:true, 
-                    origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpsot'],
+                    origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpost'],
                     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 
                 }));
 
-
+    app.use((req, res, next) => {
+                    res.header("Access-Control-Allow-Origin", "https://dos-bastardos-project.vercel.app" , "https://dos-bastardos-project.vercel.app/createpost"); // update to match the domain you will make the request from
+                    res.header("Access-Control-Allow-Credentials", "true");
+                    res.header(
+                        "Access-Control-Allow-Headers",
+                        "Origin, X-Requested-With, Content-Type, Accept"
+                    );
+                    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+                    next();
+                });
    
 
     
