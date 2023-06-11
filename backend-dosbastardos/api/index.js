@@ -29,7 +29,7 @@
 
     app.use(cors({
                     credentials:true, 
-                    origin: 'https://dos-bastardos-project.vercel.app',
+                    origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpsot'],
                     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 
                 }));
