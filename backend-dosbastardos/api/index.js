@@ -26,7 +26,15 @@
         // app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-    app.use(cors({credentials:true}));
+
+    app.use(cors({
+                    credentials:true, 
+                    origin: false,
+                    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+
+                }));
+
+
     app.use((req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
         res.header("Access-Control-Allow-Credentials", "true");
