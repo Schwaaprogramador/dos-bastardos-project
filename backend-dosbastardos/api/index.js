@@ -23,10 +23,10 @@
         const salt = bcrypt.genSaltSync(10);
         const secret ='sdfsdfsdfsdfsdfsfssfgfhtsfg' // Parametro para el token
     
-
+        // app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-
+    app.use(cors({credentials:true}));
     app.use((req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
         res.header("Access-Control-Allow-Credentials", "true");
@@ -38,7 +38,7 @@
         next();
     });
 
-    app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
+    
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
