@@ -1,4 +1,5 @@
 //-------------- EXPORTACIONES--------------------
+    const port = process.env.PORT || 3000;
     const express = require('express')
     const app = express();
     const morgan = require('morgan');//npm morgan
@@ -212,6 +213,7 @@ app.get('/post/:id',  async (req, res)=>{
 
 
 
-app.listen(3001, () => {
+
+app.listen(port, "0.0.0.0", () => {
     console.log('listening at 3001');
   })
