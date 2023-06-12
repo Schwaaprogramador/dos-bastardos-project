@@ -31,10 +31,9 @@
 
     app.use(cors({
                     credentials:true, 
-                    origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpost', 'https://dos-bastardos-project.vercel.app/inicio/crearpost'],
+                    origin: ['https://dos-bastardos-project.vercel.app'],
                     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-                    allowedHeaders: ['Access-Control-Allow-Origin', '*'],
-
+                    
                 }));
 
 
