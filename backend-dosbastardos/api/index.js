@@ -28,15 +28,17 @@
     app.use(morgan('dev'));
 
 
+
     app.use(cors({
                     credentials:true, 
-                    origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpost'],
+                    origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpost', 'https://dos-bastardos-project.vercel.app/inicio/createpost'],
                     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 
                 }));
 
+
     // app.use((req, res, next) => {
-    //                 res.header("Access-Control-Allow-Origin", "https://dos-bastardos-project.vercel.app" , "https://dos-bastardos-project.vercel.app/createpost"); // update to match the domain you will make the request from
+    //                 res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     //                 res.header("Access-Control-Allow-Credentials", "true");
     //                 res.header(
     //                     "Access-Control-Allow-Headers",
@@ -94,10 +96,6 @@ app.post('/registro', async (req, res)=>{
 
 
 
-
-
-
-
 //-------------LOGIN-------------------
 
 app.post('/login', async (req, res)=>{
@@ -128,6 +126,7 @@ app.post('/login', async (req, res)=>{
         res.status(400).json('Usuario Incorrecto')
     }
 })
+
 
 
 
