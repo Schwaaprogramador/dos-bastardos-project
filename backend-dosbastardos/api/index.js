@@ -33,20 +33,12 @@
                     credentials:true, 
                     origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpost', 'https://dos-bastardos-project.vercel.app/inicio/createpost'],
                     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+                    allowedHeaders: ['Content-Type', 'Authorization'],
 
                 }));
 
 
-    app.use((req, res, next) => {
-                    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-                    res.header("Access-Control-Allow-Credentials", "true");
-                    res.header(
-                        "Access-Control-Allow-Headers",
-                        "Origin, X-Requested-With, Content-Type, Accept"
-                    );
-                    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-                    next();
-                });
+   
    
 
     
@@ -157,8 +149,10 @@ app.get('/profile', (req, res)=>{
 app.post('/createpost', cors(), upload.single('imagen'), async (req, res)=>{
 
     const { titulo, resumen, contenido } = req.body;
+
     const { token }= req.cookies;
-    const {originalname , path} = req.file;
+
+    const { originalname , path} = req.file;
 
     const parts = originalname.split('.');
     const ext = parts[parts.length - 1];
@@ -167,19 +161,32 @@ app.post('/createpost', cors(), upload.single('imagen'), async (req, res)=>{
 
     fs.renameSync(path, newPath)
 
+
     jwt.verify(token, secret, {}, async (err, info) => {
 
         if(err) throw err;
-        const postCreado = await postModel.create({
 
-            titulo, 
-            resumen, 
-            contenido,
-            imagen: newPath,
-            author: info.id,
+        try {
 
-        })
-        res.json(postCreado);
+            const postCreado = await postModel.create({
+
+                titulo, 
+                resumen, 
+                contenido,
+                imagen: newPath,
+                author: info.id,
+    
+            })
+    
+            res.json(postCreado);
+            
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+
+        
     })
     
     
