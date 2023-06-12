@@ -26,21 +26,19 @@
         // app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-
-
-
     app.use(cors({
                     credentials:true, 
-                    origin: ['https://dos-bastardos-project.vercel.app'],
-                    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+                    origin: ['https://dos-bastardos-project.vercel.app']
                     
                 }));
 
+    app.use((req, res, next) => {
+                    
+                    res.setHeader('Access-Control-Allow-Origin', '*');
+            
+                    next();
+    });
 
-   
-   
-
-    
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
@@ -145,7 +143,7 @@ app.get('/profile', (req, res)=>{
 
 //------------------------NUEVO POST-----------------------
 
-app.post('/createpost', cors(), upload.single('imagen'), async (req, res)=>{
+app.post('/createpost', upload.single('imagen'), async (req, res)=>{
 
     const { titulo, resumen, contenido } = req.body;
 
