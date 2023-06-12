@@ -33,7 +33,7 @@
                     credentials:true, 
                     origin: ['https://dos-bastardos-project.vercel.app', 'https://dos-bastardos-project.vercel.app/createpost', 'https://dos-bastardos-project.vercel.app/inicio/createpost'],
                     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-                    allowedHeaders: ['Content-Type', 'Authorization'],
+                    allowedHeaders: ['Access-Control-Allow-Origin', '*'],
 
                 }));
 
