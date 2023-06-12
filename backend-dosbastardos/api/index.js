@@ -34,7 +34,7 @@
 
     app.use((req, res, next) => {
                     
-                    res.setHeader('Access-Control-Allow-Origin', '*');
+                    res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
             
                     next();
     });
