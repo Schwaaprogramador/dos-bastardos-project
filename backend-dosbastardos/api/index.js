@@ -14,11 +14,6 @@
     const jwt = require('jsonwebtoken') //npm jsonwebtoken
     const cookieParser = require('cookie-parser');
 
-    app.use(cors({
-        credentials:true, 
-        
-    }));
-
     //-----------LEER LOS FILES------------
     const multer = require('multer');
     const upload = multer({ dest: 'Imagenes/' });
@@ -34,18 +29,15 @@
         
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-    app.use((req, res) => {
-
-            res.appendHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
-            res.appendHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-            res.appendHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-            res.appendHeader("Access-Control-Allow-Credentials", "true");
-
-     });;
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
+    app.use(cors({
 
+        credentials:true,
+        origin:'https://dos-bastardos-project.vercel.app',
+        
+    }));
 
 
 
@@ -167,11 +159,7 @@ app.post('/createpost', upload.single('imagen'), async (req, res)=>{
                 imagen: newPath,
                 author: info.id,
             })
-
-            res.append('Access-Control-Allow-Origin', ['https://dos-bastardos-project.vercel.app']);
-            res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-            res.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-            res.append("Access-Control-Allow-Credentials", "true");          
+         
             res.send(postCreado);   
         } catch (error) {
             console.log(error)  
