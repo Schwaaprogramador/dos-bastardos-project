@@ -176,7 +176,11 @@ app.post('/createpost', upload.single('imagen'), cors({credentials:true, origin:
                 author: info.id,
     
             })
-    
+            
+            res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            res.setHeader("Access-Control-Allow-Credentials", "true");          
             res.send(postCreado);
             
         } catch (error) {
