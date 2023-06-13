@@ -18,6 +18,7 @@
     const multer = require('multer');
     const upload = multer({ dest: 'Imagenes/' });
     const fs = require('fs');
+    
         //----------Encriptar password-------
         const bcrypt = require('bcryptjs'); //npm bcrypt
         const salt = bcrypt.genSaltSync(10);
@@ -28,8 +29,7 @@
     app.use(morgan('dev'));
     app.use(cors({
                     credentials:true, 
-                    origin: ['https://dos-bastardos-project.vercel.app']
-                    
+                    origin: 'https://dos-bastardos-project.vercel.app',
                 }));
 
     app.use((req, res, next) => {
@@ -182,19 +182,10 @@ app.post('/createpost', upload.single('imagen'), async (req, res)=>{
             console.log(error)
             
         }
-
-        
-    })
-    
-    
-
-    
-
-     
-                                
+  
+    })                             
     
 })
-
 
 
 
@@ -210,9 +201,6 @@ app.get('/post', async (req, res)=>{
  
     
 })
-
-
-
 
 
 

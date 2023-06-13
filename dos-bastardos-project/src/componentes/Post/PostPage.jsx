@@ -19,7 +19,7 @@ function PostPage() {
 
           try {
     
-            const posts = await axios.get(`http://localhost:3001/post/${id}`);
+            const posts = await axios.get(`https://dos-bastardos-backend.up.railway.app/post/${id}`);
     
             setPost(posts.data);
             console.log(posts.data)
