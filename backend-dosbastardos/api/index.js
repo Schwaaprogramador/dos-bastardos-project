@@ -36,11 +36,11 @@
     app.use(morgan('dev'));
     app.use((req, res) => {
 
-            res.append('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
-            res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-            res.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-            res.append("Access-Control-Allow-Credentials", "true");
-                
+            res.appendHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
+            res.appendHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+            res.appendHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            res.appendHeader("Access-Control-Allow-Credentials", "true");
+
      });;
     app.use(express.json());
     app.use(cookieParser());
