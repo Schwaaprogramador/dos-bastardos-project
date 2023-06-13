@@ -34,12 +34,13 @@
         
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-    // app.use((req, res) => {
-    //                  res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
-    //                 res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    //                 res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    //                 res.setHeader("Access-Control-Allow-Credentials", "true");          
-    // });;
+    app.use((req, res) => {
+        
+            res.append('Access-Control-Allow-Origin', ['https://dos-bastardos-project.vercel.app']);
+            res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+            res.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            res.append("Access-Control-Allow-Credentials", "true");            
+     });;
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
@@ -148,25 +149,15 @@ app.get('/profile', (req, res)=>{
 app.post('/createpost', upload.single('imagen'), async (req, res)=>{
 
     const { titulo, resumen, contenido } = req.body;
-
     const { token }= req.cookies;
-
     const { originalname , path} = req.file;
-
     const parts = originalname.split('.');
     const ext = parts[parts.length - 1];
     const newPath = path + '.' + ext;
-    
-
     fs.renameSync(path, newPath)
-
-
     jwt.verify(token, secret, {}, async (err, info) => {
-
         if(err) throw err;
-
         try {
-
             const postCreado = await postModel.create({
 
                 titulo, 
@@ -174,23 +165,17 @@ app.post('/createpost', upload.single('imagen'), async (req, res)=>{
                 contenido,
                 imagen: newPath,
                 author: info.id,
-    
             })
-            
-            res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-            res.setHeader("Access-Control-Allow-Credentials", "true");          
-            res.send(postCreado);
-            
-        } catch (error) {
 
-            console.log(error)
-            
+            res.append('Access-Control-Allow-Origin', ['https://dos-bastardos-project.vercel.app']);
+            res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+            res.append('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            res.append("Access-Control-Allow-Credentials", "true");          
+            res.send(postCreado);   
+        } catch (error) {
+            console.log(error)  
         }
-  
-    })                             
-    
+    })                               
 })
 
 
