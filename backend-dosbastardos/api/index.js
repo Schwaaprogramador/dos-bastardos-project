@@ -34,12 +34,12 @@
         
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-    app.use((req, res) => {
-                     res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
-                    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-                    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-                    res.setHeader("Access-Control-Allow-Credentials", "true");          
-    });;
+    // app.use((req, res) => {
+    //                  res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
+    //                 res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    //                 res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    //                 res.setHeader("Access-Control-Allow-Credentials", "true");          
+    // });;
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
