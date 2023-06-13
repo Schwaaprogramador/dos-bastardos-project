@@ -33,10 +33,10 @@
                 }));
 
     app.use((req, res) => {
-                    res.set('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
-                    res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-                    res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-                    res.set("Access-Control-Allow-Credentials", "true");          
+                     res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
+                    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+                    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+                    res.setHeader("Access-Control-Allow-Credentials", "true");          
     });;
 
 
