@@ -160,7 +160,6 @@ app.post('/createpost', upload.single('imagen'), async (req, res)=>{
                 author: info.id,
             })
             
-            res.header("Access-Control-Allow-Origin", "https://dos-bastardos-project.vercel.app");
             res.send('postCreado');
 
         } catch (error) {
