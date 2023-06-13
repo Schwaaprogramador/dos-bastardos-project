@@ -145,7 +145,7 @@ app.get('/profile', (req, res)=>{
 
 //------------------------NUEVO POST-----------------------
 
-app.post('/createpost', upload.single('imagen'), cors({credentials:true, origin: 'https://dos-bastardos-project.vercel.app',}), async (req, res)=>{
+app.post('/createpost', upload.single('imagen'), async (req, res)=>{
 
     const { titulo, resumen, contenido } = req.body;
 
