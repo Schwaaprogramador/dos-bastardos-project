@@ -14,6 +14,11 @@
     const jwt = require('jsonwebtoken') //npm jsonwebtoken
     const cookieParser = require('cookie-parser');
 
+    app.use(cors({
+        credentials:true, 
+        origin: 'https://dos-bastardos-project.vercel.app',
+    }));
+
     //-----------LEER LOS FILES------------
     const multer = require('multer');
     const upload = multer({ dest: 'Imagenes/' });
@@ -25,24 +30,20 @@
         const secret ='sdfsdfsdfsdfsdfsfssfgfhtsfg' // Parametro para el token
     
         // app.use(cors({credentials:true , origin:'https://dos-bastardos-project.vercel.app'}));
+   
+        
     //----------MIDDLEWARES---------------
     app.use(morgan('dev'));
-    app.use(cors({
-                    credentials:true, 
-                    origin: 'https://dos-bastardos-project.vercel.app',
-                }));
-
     app.use((req, res) => {
                      res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app');
                     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
                     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
                     res.setHeader("Access-Control-Allow-Credentials", "true");          
     });;
-
-
     app.use(express.json());
     app.use(cookieParser());
     app.use('/Imagenes', express.static(__dirname+'/Imagenes'))
+
 
 
 
@@ -176,7 +177,7 @@ app.post('/createpost', upload.single('imagen'), cors({credentials:true, origin:
     
             })
     
-            res.json(postCreado);
+            res.send(postCreado);
             
         } catch (error) {
 
