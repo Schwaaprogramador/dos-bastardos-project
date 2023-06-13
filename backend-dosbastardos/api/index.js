@@ -34,7 +34,7 @@
 
     app.use((req, res, next) => {
                     res.setHeader('Access-Control-Allow-Origin', 'https://dos-bastardos-project.vercel.app, https://dos-bastardos-backend.up.railway.app/createpost');
-                    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+                    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
                     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
                     res.setHeader("Access-Control-Allow-Credentials", "true");
                     next();
@@ -159,7 +159,7 @@ app.get('/profile', (req, res)=>{
 
 //------------------------NUEVO POST-----------------------
 
-app.post('/createpost', upload.single('imagen'), async (req, res)=>{
+app.post('/createpost', upload.single('imagen'), cors({credentials:true, origin: 'https://dos-bastardos-project.vercel.app',}), async (req, res)=>{
 
     const { titulo, resumen, contenido } = req.body;
 
