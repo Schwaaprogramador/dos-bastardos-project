@@ -2,6 +2,7 @@ import React from 'react'
 import styled from './Home.module.css';
 
 import { Link } from 'react-scroll';
+import News from '../News/News';
 //import NavBar from '../NavBar/NavBar';
 
 function Home() {
@@ -33,6 +34,19 @@ function Home() {
 
       </header>
 
+
+      <section name="section3Container"className={styled.section1Container}>
+
+        <div className={styled.text}>
+          <News/>
+        </div>
+
+      </section>
+
+
+
+
+
       <section name="section1Container" className={styled.section1Container}> 
 
         <div className={styled.text}><p>Publica con nosotros</p></div>
@@ -40,7 +54,7 @@ function Home() {
       </section>
 
       <section name="section2Container"className={styled.section2Container}><div className={styled.text}><p>Cultura</p></div> </section>
-      <section name="section3Container"className={styled.section1Container}><div className={styled.text}><p>Noticias</p></div></section>
+      
       <section name="section4Container"className={styled.section2Container}> <div className={styled.text}><p>Sobre Nosotros</p></div></section>
         
     </div>
