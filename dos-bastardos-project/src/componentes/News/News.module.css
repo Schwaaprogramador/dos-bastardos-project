@@ -1,0 +1,14 @@
+.container {
+    
+    order: -1;
+    width: 700px;
+    position: relative;
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 15px;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap: 20px;
+}
